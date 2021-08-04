@@ -19,7 +19,6 @@ class _ImageInputState extends State<ImageInput> {
 
   Future<void> _takePicture() async {
     final picker = ImagePicker();
-    // ignore: deprecated_member_use
     final imageFile = await picker.pickImage(
       source: ImageSource.camera,
       maxWidth: 600,
