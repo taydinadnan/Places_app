@@ -18,8 +18,7 @@ class _ImageInputState extends State<ImageInput> {
   File _storedImage;
 
   Future<void> _takePicture() async {
-    final picker = ImagePicker();
-    final imageFile = await picker.pickImage(
+    final imageFile = await ImagePicker.pickImage(
       source: ImageSource.camera,
       maxWidth: 600,
     );
@@ -27,11 +26,11 @@ class _ImageInputState extends State<ImageInput> {
       return;
     }
     setState(() {
-      _storedImage = File(imageFile.path);
+      _storedImage = imageFile;
     });
-    final aapDir = await syspaths.getApplicationDocumentsDirectory();
+    final appDir = await syspaths.getApplicationDocumentsDirectory();
     final fileName = path.basename(imageFile.path);
-    final savedImage = await _storedImage.copy('${aapDir.path}/$fileName');
+    final savedImage = await imageFile.copy('${appDir.path}/$fileName');
     widget.onSelectImage(savedImage);
   }
 
@@ -40,13 +39,10 @@ class _ImageInputState extends State<ImageInput> {
     return Row(
       children: <Widget>[
         Container(
-          width: 180,
-          height: 150,
+          width: 150,
+          height: 100,
           decoration: BoxDecoration(
-            border: Border.all(
-              width: 1,
-              color: Colors.grey,
-            ),
+            border: Border.all(width: 1, color: Colors.grey),
           ),
           child: _storedImage != null
               ? Image.file(
@@ -55,7 +51,7 @@ class _ImageInputState extends State<ImageInput> {
                   width: double.infinity,
                 )
               : Text(
-                  'No Image Taken!',
+                  'No Image Taken',
                   textAlign: TextAlign.center,
                 ),
           alignment: Alignment.center,
@@ -64,7 +60,6 @@ class _ImageInputState extends State<ImageInput> {
           width: 10,
         ),
         Expanded(
-          // ignore: deprecated_member_use
           child: FlatButton.icon(
             icon: Icon(Icons.camera),
             label: Text('Take Picture'),

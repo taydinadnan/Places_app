@@ -7,8 +7,11 @@ class PlaceLocation {
   final double longitude;
   final String address;
 
-  PlaceLocation(
-      {@required this.latitude, @required this.longitude, this.address});
+  const PlaceLocation({
+    @required this.latitude,
+    @required this.longitude,
+    this.address,
+  });
 }
 
 class Place {
@@ -19,8 +22,8 @@ class Place {
 
   Place({
     @required this.id,
-    @required this.image,
     @required this.title,
     @required this.location,
+    @required this.image,
   });
 }
