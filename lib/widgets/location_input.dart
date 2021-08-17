@@ -78,6 +78,7 @@ class _LocationInputState extends State<LocationInput> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            // ignore: deprecated_member_use
             FlatButton.icon(
               icon: Icon(
                 Icons.location_on,
@@ -86,6 +87,7 @@ class _LocationInputState extends State<LocationInput> {
               textColor: Theme.of(context).primaryColor,
               onPressed: _getCurrentUserLocation,
             ),
+            // ignore: deprecated_member_use
             FlatButton.icon(
               icon: Icon(
                 Icons.map,

@@ -71,6 +71,7 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
               ),
             ),
           ),
+          // ignore: deprecated_member_use
           RaisedButton.icon(
             icon: Icon(Icons.add),
             label: Text('Add Place'),

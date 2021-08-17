@@ -41,6 +41,7 @@ class PlaceDetailScreen extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
+          // ignore: deprecated_member_use
           FlatButton(
             child: Text('View on Map'),
             textColor: Theme.of(context).primaryColor,

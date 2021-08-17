@@ -18,6 +18,7 @@ class _ImageInputState extends State<ImageInput> {
   File _storedImage;
 
   Future<void> _takePicture() async {
+    // ignore: deprecated_member_use
     final imageFile = await ImagePicker.pickImage(
       source: ImageSource.camera,
       maxWidth: 600,
@@ -60,6 +61,7 @@ class _ImageInputState extends State<ImageInput> {
           width: 10,
         ),
         Expanded(
+          // ignore: deprecated_member_use
           child: FlatButton.icon(
             icon: Icon(Icons.camera),
             label: Text('Take Picture'),
